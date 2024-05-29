@@ -19,6 +19,8 @@ from scrapy.selector import Selector
 import instaloader
 from dataclasses import dataclass
 
+
+#Sadece bu views alanında çalışılabilir. Bu view ile yorumları alıp veritabanına aktarabiliriz. lastcomment.html sayfasında render ediyor.
 class FetchCommentsLastView(View):
     def post(self, request):
         post_link = request.POST.get('post_link')
