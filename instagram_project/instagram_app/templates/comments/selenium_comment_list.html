@@ -1,0 +1,24 @@
+<!-- templates/comments/selenium_comment_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Instagram Comments</title>
+</head>
+<body>
+    <h1>Fetch Instagram Comments</h1>
+    <form method="post" action="{% url 'comments:selencomment' %}">
+        {% csrf_token %}
+        <input type="text" name="post_link" placeholder="Enter Instagram post link" required>
+        <button type="submit">Fetch Comments</button>
+    </form>
+    
+    <h2>Comments</h2>
+    <ul>
+        {% for comment in comments %}
+            <li>
+                <strong>{{ comment.username }}:</strong> {{ comment.text }} <em>on {{ comment.created_at }}</em>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
